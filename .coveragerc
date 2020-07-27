@@ -6,5 +6,6 @@ omit = */setup.py
     s3_bids_layout/version.py
     s3_bids_layout/_meta.py
     s3_bids_layout/tests/*.py
+    s3_bids_layout/data/*
 [report]
 include = s3_bids_layout/*

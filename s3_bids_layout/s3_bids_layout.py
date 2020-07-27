@@ -12,6 +12,8 @@ from botocore import UNSIGNED
 from botocore.client import Config
 from pathlib import Path
 
+__all__ = ["CloudBIDSLayout"]
+
 
 def _get_s3_client(anon=True):
     """Return a boto3 s3 client
@@ -100,7 +102,7 @@ def _get_matching_s3_keys(bucket, prefix='', suffix='', anon=True):
             break
 
 
-def _mimic_s3(remote_uri, download_dir=None, anon=True):
+def _mimic_s3(remote_location, download_dir=None, anon=True):
     """Mimic a dataset located on Amazon S3
 
     This function downloads all json files and mimics the rest using
@@ -108,7 +110,7 @@ def _mimic_s3(remote_uri, download_dir=None, anon=True):
 
     Parameters
     ----------
-    remote_uri : str
+    remote_location : str
         The Amazon S3 URI
 
     download_dir : str, optional, default=None
@@ -135,7 +137,7 @@ def _mimic_s3(remote_uri, download_dir=None, anon=True):
     """
     fs = s3fs.S3FileSystem(anon=anon)
 
-    uri_entities = _parse_s3_uri(remote_uri)
+    uri_entities = _parse_s3_uri(remote_location)
     bucket = uri_entities["bucket"]
     s3_prefix = uri_entities["key"]
 
@@ -294,7 +296,7 @@ class CloudBIDSLayout(bids.BIDSLayout):
                  force_index=None, config_filename='layout_config.json',
                  regex_search=False, database_path=None, database_file=None,
                  reset_database=False, index_metadata=True):
-        mimic = _mimic_s3(s3_uri=remote_location, download_dir=download_dir, anon=anon)
+        mimic = _mimic_s3(remote_location=remote_location, download_dir=download_dir, anon=anon)
         bids_dir = mimic["download_dir"]
 
         self._remote_uri = remote_location
