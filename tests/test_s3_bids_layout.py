@@ -25,9 +25,11 @@ def s3_setup():
     fs = s3fs.S3FileSystem()
     client = sbl._get_s3_client()
     client.create_bucket(Bucket=TEST_BUCKET)
-    fs.put(op.join(DATA_PATH, TEST_DATASET),
-           "/".join([TEST_BUCKET, TEST_S3_KEY]),
-           recursive=True)
+    fs.put(
+        op.join(DATA_PATH, TEST_DATASET),
+        "/".join([TEST_BUCKET, TEST_S3_KEY]),
+        recursive=True,
+    )
 
 
 def test_command_line_interface():
@@ -35,10 +37,10 @@ def test_command_line_interface():
     runner = CliRunner()
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
-    assert 's3_bids_layout.cli.main' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
+    assert "s3_bids_layout.cli.main" in result.output
+    help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
+    assert "--help  Show this message and exit." in help_result.output
 
 
 @mock_s3
@@ -74,7 +76,9 @@ def test_parse_s3_uri():
 def test_get_matching_s3_keys(s3_setup):
     fnames = [s for s in glob(DATA_PATH, recursive=True) if op.isfile(s)]
     print(fnames)
-    matching_keys = list(sbl._get_matching_s3_keys(bucket=TEST_BUCKET, prefix=TEST_S3_KEY))
+    matching_keys = list(
+        sbl._get_matching_s3_keys(bucket=TEST_BUCKET, prefix=TEST_S3_KEY)
+    )
     print(matching_keys)
 
     assert set(fnames) == set(matching_keys)

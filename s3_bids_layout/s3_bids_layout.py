@@ -35,17 +35,14 @@ def _get_s3_client(anon=True):
     """
     session = boto3.session.Session()
     if anon:
-        s3_client = session.client(
-            's3',
-            config=Config(signature_version=UNSIGNED)
-        )
+        s3_client = session.client("s3", config=Config(signature_version=UNSIGNED))
     else:
-        s3_client = session.client('s3')
+        s3_client = session.client("s3")
 
     return s3_client
 
 
-def _get_matching_s3_keys(bucket, prefix='', suffix='', anon=True):
+def _get_matching_s3_keys(bucket, prefix="", suffix="", anon=True):
     """Generate all the matching keys in an S3 bucket.
 
     Parameters
@@ -71,12 +68,12 @@ def _get_matching_s3_keys(bucket, prefix='', suffix='', anon=True):
         S3 keys that match the prefix and suffix
     """
     s3 = _get_s3_client(anon=anon)
-    kwargs = {'Bucket': bucket, 'MaxKeys': 1000}
+    kwargs = {"Bucket": bucket, "MaxKeys": 1000}
 
     # If the prefix is a single string (not a tuple of strings), we can
     # do the filtering directly in the S3 API.
     if isinstance(prefix, str) and prefix:
-        kwargs['Prefix'] = prefix
+        kwargs["Prefix"] = prefix
 
     while True:
         # The S3 API response is a large blob of metadata.
@@ -84,12 +81,12 @@ def _get_matching_s3_keys(bucket, prefix='', suffix='', anon=True):
         resp = s3.list_objects_v2(**kwargs)
 
         try:
-            contents = resp['Contents']
+            contents = resp["Contents"]
         except KeyError:
             return
 
         for obj in contents:
-            key = obj['Key']
+            key = obj["Key"]
             if key.startswith(prefix) and key.endswith(suffix):
                 yield key
 
@@ -97,7 +94,7 @@ def _get_matching_s3_keys(bucket, prefix='', suffix='', anon=True):
         # Pass the continuation token into the next response, until we
         # reach the final page (when this field is missing).
         try:
-            kwargs['ContinuationToken'] = resp['NextContinuationToken']
+            kwargs["ContinuationToken"] = resp["NextContinuationToken"]
         except KeyError:
             break
 
@@ -141,11 +138,7 @@ def _mimic_s3(remote_location, download_dir=None, anon=True):
     bucket = uri_entities["bucket"]
     s3_prefix = uri_entities["key"]
 
-    s3_keys = _get_matching_s3_keys(
-        bucket=bucket,
-        prefix=s3_prefix,
-        anon=anon,
-    )
+    s3_keys = _get_matching_s3_keys(bucket=bucket, prefix=s3_prefix, anon=anon,)
 
     if download_dir is None:
         download_dir = tempfile.mkdtemp()
@@ -290,13 +283,29 @@ class CloudBIDSLayout(bids.BIDSLayout):
         initialization. If False, metadata will not be available (but
         indexing will be faster).
     """
-    def __init__(self, remote_location, download_dir=None, anon=True,
-                 validate=True, absolute_paths=True,
-                 derivatives=False, config=None, sources=None, ignore=None,
-                 force_index=None, config_filename='layout_config.json',
-                 regex_search=False, database_path=None, database_file=None,
-                 reset_database=False, index_metadata=True):
-        mimic = _mimic_s3(remote_location=remote_location, download_dir=download_dir, anon=anon)
+
+    def __init__(
+        self,
+        remote_location,
+        download_dir=None,
+        anon=True,
+        validate=True,
+        absolute_paths=True,
+        derivatives=False,
+        config=None,
+        sources=None,
+        ignore=None,
+        force_index=None,
+        config_filename="layout_config.json",
+        regex_search=False,
+        database_path=None,
+        database_file=None,
+        reset_database=False,
+        index_metadata=True,
+    ):
+        mimic = _mimic_s3(
+            remote_location=remote_location, download_dir=download_dir, anon=anon
+        )
         bids_dir = mimic["download_dir"]
 
         self._remote_uri = remote_location
@@ -319,12 +328,19 @@ class CloudBIDSLayout(bids.BIDSLayout):
             database_path=database_path,
             database_file=database_file,
             reset_database=reset_database,
-            index_metadata=index_metadata
+            index_metadata=index_metadata,
         )
 
-    def download_files(self, return_type="object", target=None, scope="all",
-                       regex_search=False, absolute_paths=None,
-                       invalid_filters="error", **filters):
+    def download_files(
+        self,
+        return_type="object",
+        target=None,
+        scope="all",
+        regex_search=False,
+        absolute_paths=None,
+        invalid_filters="error",
+        **filters,
+    ):
         """Wrapper for bids.BIDSLayout().get()
 
         Retrieves files and/or metadata from the current Layout
@@ -387,9 +403,7 @@ class CloudBIDSLayout(bids.BIDSLayout):
         """
         valid_return_types = ["object", "file", "filename"]
         if return_type not in valid_return_types:
-            return ValueError(
-                f"return_type must be one of {valid_return_types}."
-            )
+            return ValueError(f"return_type must be one of {valid_return_types}.")
 
         results = super().get(
             return_type=return_type,
@@ -398,7 +412,7 @@ class CloudBIDSLayout(bids.BIDSLayout):
             regex_search=regex_search,
             absolute_paths=absolute_paths,
             invalid_filters=invalid_filters,
-            **filters
+            **filters,
         )
 
         if return_type.startswith("file"):
