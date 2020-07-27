@@ -2,7 +2,6 @@
 
 import bids
 import boto3
-import os
 import os.path as op
 import re
 import s3fs
@@ -138,7 +137,7 @@ def _mimic_s3(remote_location, download_dir=None, anon=True):
     bucket = uri_entities["bucket"]
     s3_prefix = uri_entities["key"]
 
-    s3_keys = _get_matching_s3_keys(bucket=bucket, prefix=s3_prefix, anon=anon,)
+    s3_keys = _get_matching_s3_keys(bucket=bucket, prefix=s3_prefix, anon=anon)
 
     if download_dir is None:
         download_dir = tempfile.mkdtemp()
@@ -159,10 +158,7 @@ def _mimic_s3(remote_location, download_dir=None, anon=True):
             Path(op.dirname(fname)).mkdir(parents=True, exist_ok=True)
             Path(fname).touch()
 
-    return {
-        "download_dir": download_dir,
-        "host2cloud_file_map": host2cloud_file_map,
-    }
+    return {"download_dir": download_dir, "host2cloud_file_map": host2cloud_file_map}
 
 
 def _parse_s3_uri(s3_uri):

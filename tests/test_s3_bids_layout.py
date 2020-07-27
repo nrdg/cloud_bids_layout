@@ -2,6 +2,7 @@
 
 """Tests for `s3_bids_layout` package."""
 
+import bids
 import botocore
 import filecmp
 import os
@@ -17,8 +18,8 @@ from s3_bids_layout import cli
 from uuid import uuid4
 
 DATA_PATH = op.join(op.abspath(op.dirname(__file__)), "data")
-TEST_DATASET = "ds000102-mimic"
 TEST_BUCKET = "test-bucket"
+TEST_DATASET = "ds000102-mimic"
 
 
 @pytest.fixture
@@ -104,7 +105,7 @@ def test_get_matching_s3_keys():
 
 
 @mock_s3
-def test_mimic_s3(temp_data_dir):
+def test_mimic_s3_with_named_dir(temp_data_dir):
     s3_setup()
 
     test_dir = temp_data_dir
@@ -113,11 +114,67 @@ def test_mimic_s3(temp_data_dir):
         "/".join([TEST_BUCKET, TEST_DATASET]), download_dir=test_dir, anon=False
     )
     download_dir = op.abspath(mimic["download_dir"])
+
+    assert download_dir == op.abspath(test_dir)
+
     download_files = list(mimic["host2cloud_file_map"].keys())
-    reference_dir = op.abspath(op.join(DATA_PATH, TEST_DATASET))
+    ref_dir = op.abspath(op.join(DATA_PATH, TEST_DATASET))
 
     match, mismatch, errors = filecmp.cmpfiles(
-        reference_dir, download_dir, download_files, shallow=False
+        ref_dir, download_dir, download_files, shallow=False
+    )
+
+    assert not mismatch
+    assert not errors
+
+
+@mock_s3
+def test_mimic_s3_with_temp_dir():
+    s3_setup()
+
+    mimic = sbl._mimic_s3(
+        "/".join([TEST_BUCKET, TEST_DATASET]), download_dir=None, anon=False
+    )
+    download_dir = op.abspath(mimic["download_dir"])
+    download_files = list(mimic["host2cloud_file_map"].keys())
+    ref_dir = op.abspath(op.join(DATA_PATH, TEST_DATASET))
+
+    match, mismatch, errors = filecmp.cmpfiles(
+        ref_dir, download_dir, download_files, shallow=False
+    )
+
+    shutil.rmtree(download_dir)
+
+    assert not mismatch
+    assert not errors
+
+
+@mock_s3
+def test_CloudBIDSLayout(temp_data_dir):
+    s3_setup()
+
+    test_dir = temp_data_dir
+
+    cloud_layout = sbl.CloudBIDSLayout(
+        remote_location="/".join([TEST_BUCKET, TEST_DATASET]),
+        download_dir=test_dir,
+        anon=False,
+    )
+
+    orig_layout = bids.BIDSLayout(test_dir)
+
+    assert cloud_layout.get(return_type="files") == orig_layout.get(return_type="files")
+
+    cloud_layout.download_files()
+
+    ref_dir = op.abspath(op.join(DATA_PATH, TEST_DATASET))
+    test_files = [
+        s for s in glob(op.join(test_dir, "**"), recursive=True) if op.isfile(s)
+    ]
+    test_files = [s.replace(test_dir + "/", "") for s in test_files]
+
+    match, mismatch, errors = filecmp.cmpfiles(
+        ref_dir, test_dir, test_files, shallow=False
     )
 
     assert not mismatch
