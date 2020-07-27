@@ -1,0 +1,10 @@
+[run]
+branch = True
+source = s3_bids_layout/*
+include = s3_bids_layout/*
+omit = */setup.py
+    s3_bids_layout/version.py
+    s3_bids_layout/_meta.py
+    s3_bids_layout/tests/*.py
+[report]
+include = s3_bids_layout/*

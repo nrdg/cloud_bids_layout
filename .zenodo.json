@@ -1,0 +1,28 @@
+{
+  "contributors": [],
+  "creators": [
+    {
+      "affiliation": "The University of Washington",
+      "name": "Richie-Halford, Adam",
+      "orcid": "0000-0001-9276-9084"
+    },
+  ],
+  "description": "<p>S3-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that can grab BIDS studies from Amazon S3.</p>",
+  "keywords": [
+    "BIDS",
+    "Neuroimaging",
+    "Amazon S3",
+    "Cloud"
+  ],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "identifier": "http://nrdg.github.io/s3-bids-layout",
+      "relation": "isPartOf",
+      "scheme": "url"
+    }
+  ],
+  "title": "S3-BIDS-Layout: Use pybids with Amazon S3",
+  "upload_type": "software"
+}
+
