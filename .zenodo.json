@@ -7,7 +7,7 @@
       "orcid": "0000-0001-9276-9084"
     },
   ],
-  "description": "<p>S3-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that can grab BIDS studies from Amazon S3.</p>",
+  "description": "<p>Cloud-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that can grab BIDS studies from Amazon S3.</p> <p>Other cloud providers will be implemented in the future.</p>",
   "keywords": [
     "BIDS",
     "Neuroimaging",
@@ -17,12 +17,12 @@
   "license": "MIT",
   "related_identifiers": [
     {
-      "identifier": "http://nrdg.github.io/s3-bids-layout",
+      "identifier": "http://nrdg.github.io/cloud-bids-layout",
       "relation": "isPartOf",
       "scheme": "url"
     }
   ],
-  "title": "S3-BIDS-Layout: Use pybids with Amazon S3",
+  "title": "Cloud-BIDS-Layout: Use pybids with Amazon S3",
   "upload_type": "software"
 }
 

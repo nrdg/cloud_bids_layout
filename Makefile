@@ -46,19 +46,19 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 s3_bids_layout tests
+	flake8 cloud_bids_layout tests
 
 test: ## run tests quickly with the default Python
 	pytest
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source s3_bids_layout -m pytest
+	coverage run --source cloud_bids_layout -m pytest
 	coverage report -m
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/s3_bids_layout.rst
+	rm -f docs/cloud_bids_layout.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ s3_bids_layout
+	sphinx-apidoc -o docs/ cloud_bids_layout
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html

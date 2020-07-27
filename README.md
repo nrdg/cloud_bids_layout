@@ -1,24 +1,24 @@
-# S3-BIDS-Layout
+# Cloud-BIDS-Layout
 
-S3-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that can
+Cloud-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that can
 grab BIDS studies from Amazon S3.
 
 ## Features
 
 - TODO
 
-This is the S3-BIDS-Layout development site. You can view the source
-code, file new issues, and contribute to S3-BIDS-Layouts's development.
-If you are just getting started, you should look at the [S3-BIDS-Layout
-documentation](https://nrdg.github.io/s3_bids_layout)
+This is the Cloud-BIDS-Layout development site. You can view the source
+code, file new issues, and contribute to Cloud-BIDS-Layouts's development.
+If you are just getting started, you should look at the [Cloud-BIDS-Layout
+documentation](https://nrdg.github.io/cloud_bids_layout)
 
 ## Contributing
 
-We love contributions! S3-BIDS-Layout is open source, built on open
+We love contributions! Cloud-BIDS-Layout is open source, built on open
 source, and we'd love to have you hang out in our community.
 
 We have developed some [guidelines](CONTRIBUTING.md) for contributing to
-S3-BIDS-Layout.
+Cloud-BIDS-Layout.
 
 **Imposter syndrome disclaimer**: We want your help. No, really.
 

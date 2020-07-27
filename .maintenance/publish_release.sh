@@ -8,7 +8,7 @@ fi
 
 # Store version number and upstream repo name
 VERSION=$1
-REPO=$(git remote -v | grep github.com:nrdg/s3_bids_layout.git | head -n 1 | cut -f 1)
+REPO=$(git remote -v | grep github.com:nrdg/cloud_bids_layout.git | head -n 1 | cut -f 1)
 
 /bin/bash .maintenance/update_changes.sh "${VERSION}"
 
