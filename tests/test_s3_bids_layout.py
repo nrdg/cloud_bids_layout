@@ -3,22 +3,34 @@
 """Tests for `s3_bids_layout` package."""
 
 import botocore
+import filecmp
+import os
 import os.path as op
 import pytest
 import s3fs
+import shutil
 from click.testing import CliRunner
 from glob import glob
 from moto import mock_s3
 from s3_bids_layout import s3_bids_layout as sbl
 from s3_bids_layout import cli
+from uuid import uuid4
 
 DATA_PATH = op.join(op.abspath(op.dirname(__file__)), "data")
 TEST_DATASET = "ds000102-mimic"
 TEST_BUCKET = "test-bucket"
-TEST_S3_KEY = "test-data"
 
 
 @pytest.fixture
+def temp_data_dir():
+    test_dir = str(uuid4())
+    os.mkdir(test_dir)
+
+    yield test_dir
+
+    shutil.rmtree(test_dir)
+
+
 @mock_s3
 def s3_setup():
     """pytest fixture to put test_data directory on mock_s3"""
@@ -27,7 +39,7 @@ def s3_setup():
     client.create_bucket(Bucket=TEST_BUCKET)
     fs.put(
         op.join(DATA_PATH, TEST_DATASET),
-        "/".join([TEST_BUCKET, TEST_S3_KEY]),
+        "/".join([TEST_BUCKET, TEST_DATASET]),
         recursive=True,
     )
 
@@ -73,12 +85,40 @@ def test_parse_s3_uri():
 
 
 @mock_s3
-def test_get_matching_s3_keys(s3_setup):
-    fnames = [s for s in glob(DATA_PATH, recursive=True) if op.isfile(s)]
-    print(fnames)
+def test_get_matching_s3_keys():
+    s3_setup()
+
+    fnames = []
+    for pattern in ["**", "*/.*", "*/.*/.*", "*/.*/**"]:
+        fnames += [
+            s for s in glob(op.join(DATA_PATH, pattern), recursive=True) if op.isfile(s)
+        ]
+
+    fnames = [s.replace(DATA_PATH + "/", "") for s in fnames]
+
     matching_keys = list(
-        sbl._get_matching_s3_keys(bucket=TEST_BUCKET, prefix=TEST_S3_KEY)
+        sbl._get_matching_s3_keys(bucket=TEST_BUCKET, prefix=TEST_DATASET)
     )
-    print(matching_keys)
 
     assert set(fnames) == set(matching_keys)
+
+
+@mock_s3
+def test_mimic_s3(temp_data_dir):
+    s3_setup()
+
+    test_dir = temp_data_dir
+
+    mimic = sbl._mimic_s3(
+        "/".join([TEST_BUCKET, TEST_DATASET]), download_dir=test_dir, anon=False
+    )
+    download_dir = op.abspath(mimic["download_dir"])
+    download_files = list(mimic["host2cloud_file_map"].keys())
+    reference_dir = op.abspath(op.join(DATA_PATH, TEST_DATASET))
+
+    match, mismatch, errors = filecmp.cmpfiles(
+        reference_dir, download_dir, download_files, shallow=False
+    )
+
+    assert not mismatch
+    assert not errors
