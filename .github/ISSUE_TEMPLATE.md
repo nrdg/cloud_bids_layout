@@ -1,4 +1,4 @@
-* S3-BIDS-Layout version:
+* Cloud-BIDS-Layout version:
 * Python version:
 * Operating System:
 

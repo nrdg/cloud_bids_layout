@@ -17,13 +17,13 @@ CLASSIFIERS = [
 ]
 
 # Description should be a one-liner:
-description = "S3-BIDS-Layout: Use pybids with Amazon S3"
+description = "Cloud-BIDS-Layout: Use pybids with Amazon S3"
 
-NAME = "s3_bids_layout"
+NAME = "cloud_bids_layout"
 MAINTAINER = "Adam Richie-Halford"
 MAINTAINER_EMAIL = "richiehalford@gmail.com"
 DESCRIPTION = description
-URL = ("https://github.com/nrdg/s3_bids_layout",)
+URL = ("https://github.com/nrdg/cloud_bids_layout",)
 DOWNLOAD_URL = ""
 LICENSE = "MIT"
 AUTHOR = "Adam Richie-Halford"

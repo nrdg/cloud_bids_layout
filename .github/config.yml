@@ -8,7 +8,7 @@ sentimentBotToxicityThreshold: .7
 sentimentBotReplyComment: >
   SentimentBot thinks that this comment is toxic. Perhaps SentimentBot got it wrong. But then again, maybe you did.
   
-  Please reread your comment and take advantage of any opportunities to "turn down the temperature." We want the S3-BIDS-Layout community to be inclusive and welcoming. Please be respectful of other users and think about ways to communicate the same message in a more delicate manner. cc/ @richford
+  Please reread your comment and take advantage of any opportunities to "turn down the temperature." We want the Cloud-BIDS-Layout community to be inclusive and welcoming. Please be respectful of other users and think about ways to communicate the same message in a more delicate manner. cc/ @richford
 
 #=======================================================================
 
@@ -18,7 +18,7 @@ sentimentBotReplyComment: >
 
 # Comment to be posted to on first time issues
 newIssueWelcomeComment: >
-  👋 Thanks for opening your first issue here! We appreciate your help making S3-BIDS-Layout better.
+  👋 Thanks for opening your first issue here! We appreciate your help making Cloud-BIDS-Layout better.
 
 # Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
 

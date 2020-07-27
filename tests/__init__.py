@@ -1,1 +1,1 @@
-"""Unit test package for s3_bids_layout."""
+"""Unit test package for cloud_bids_layout."""

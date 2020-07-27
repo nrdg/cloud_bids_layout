@@ -47,6 +47,7 @@ clean-test: ## remove test and coverage artifacts
 
 lint: ## check style with flake8
 	flake8 cloud_bids_layout tests
+	black --check cloud_bids_layout tests
 
 test: ## run tests quickly with the default Python
 	pytest

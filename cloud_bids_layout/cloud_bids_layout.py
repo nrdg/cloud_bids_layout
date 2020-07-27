@@ -1,4 +1,4 @@
-"""Main module for S3-BIDS-Layout."""
+"""Main module for Cloud-BIDS-Layout."""
 
 import bids
 import boto3

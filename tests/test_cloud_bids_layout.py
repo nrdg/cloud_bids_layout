@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for `s3_bids_layout` package."""
+"""Tests for `cloud_bids_layout` package."""
 
 import bids
 import botocore
@@ -13,8 +13,8 @@ import shutil
 from click.testing import CliRunner
 from glob import glob
 from moto import mock_s3
-from s3_bids_layout import s3_bids_layout as sbl
-from s3_bids_layout import cli
+from cloud_bids_layout import cloud_bids_layout as cbl
+from cloud_bids_layout import cli
 from uuid import uuid4
 
 DATA_PATH = op.join(op.abspath(op.dirname(__file__)), "data")
@@ -36,7 +36,7 @@ def temp_data_dir():
 def s3_setup():
     """pytest fixture to put test_data directory on mock_s3"""
     fs = s3fs.S3FileSystem()
-    client = sbl._get_s3_client()
+    client = cbl._get_s3_client()
     client.create_bucket(Bucket=TEST_BUCKET)
     fs.put(
         op.join(DATA_PATH, TEST_DATASET),
@@ -50,7 +50,7 @@ def test_command_line_interface():
     runner = CliRunner()
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
-    assert "s3_bids_layout.cli.main" in result.output
+    assert "cloud_bids_layout.cli.main" in result.output
     help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
     assert "--help  Show this message and exit." in help_result.output
@@ -58,12 +58,12 @@ def test_command_line_interface():
 
 @mock_s3
 def test_get_s3_client():
-    client_anon = sbl._get_s3_client(anon=True)
+    client_anon = cbl._get_s3_client(anon=True)
     assert isinstance(client_anon, botocore.client.BaseClient)
     assert client_anon.meta.service_model.service_id == "S3"
     assert client_anon.meta.config.signature_version == botocore.UNSIGNED
 
-    client = sbl._get_s3_client(anon=False)
+    client = cbl._get_s3_client(anon=False)
     assert isinstance(client, botocore.client.BaseClient)
     assert client.meta.service_model.service_id == "S3"
     assert isinstance(client.meta.config.signature_version, str)
@@ -71,18 +71,18 @@ def test_get_s3_client():
 
 def test_parse_s3_uri():
     # Test for correct parsing with the "s3://" prefix
-    parsed = sbl._parse_s3_uri("s3://bucket/key")
+    parsed = cbl._parse_s3_uri("s3://bucket/key")
     assert parsed["bucket"] == "bucket"
     assert parsed["key"] == "key"
 
     # Test without it
-    parsed = sbl._parse_s3_uri("bucket/key")
+    parsed = cbl._parse_s3_uri("bucket/key")
     assert parsed["bucket"] == "bucket"
     assert parsed["key"] == "key"
 
     # Test for ValueError on incorrect formatting
     with pytest.raises(ValueError):
-        sbl._parse_s3_uri("foo")
+        cbl._parse_s3_uri("foo")
 
 
 @mock_s3
@@ -98,7 +98,7 @@ def test_get_matching_s3_keys():
     fnames = [s.replace(DATA_PATH + "/", "") for s in fnames]
 
     matching_keys = list(
-        sbl._get_matching_s3_keys(bucket=TEST_BUCKET, prefix=TEST_DATASET)
+        cbl._get_matching_s3_keys(bucket=TEST_BUCKET, prefix=TEST_DATASET)
     )
 
     assert set(fnames) == set(matching_keys)
@@ -110,7 +110,7 @@ def test_mimic_s3_with_named_dir(temp_data_dir):
 
     test_dir = temp_data_dir
 
-    mimic = sbl._mimic_s3(
+    mimic = cbl._mimic_s3(
         "/".join([TEST_BUCKET, TEST_DATASET]), download_dir=test_dir, anon=False
     )
     download_dir = op.abspath(mimic["download_dir"])
@@ -132,7 +132,7 @@ def test_mimic_s3_with_named_dir(temp_data_dir):
 def test_mimic_s3_with_temp_dir():
     s3_setup()
 
-    mimic = sbl._mimic_s3(
+    mimic = cbl._mimic_s3(
         "/".join([TEST_BUCKET, TEST_DATASET]), download_dir=None, anon=False
     )
     download_dir = op.abspath(mimic["download_dir"])
@@ -155,7 +155,7 @@ def test_CloudBIDSLayout(temp_data_dir):
 
     test_dir = temp_data_dir
 
-    cloud_layout = sbl.CloudBIDSLayout(
+    cloud_layout = cbl.CloudBIDSLayout(
         remote_location="/".join([TEST_BUCKET, TEST_DATASET]),
         download_dir=test_dir,
         anon=False,
