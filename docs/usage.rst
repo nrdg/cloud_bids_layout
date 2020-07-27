@@ -1,0 +1,7 @@
+=====
+Usage
+=====
+
+To use Cloud-BIDS-Layout in a project::
+
+    import cloud_bids_layout
