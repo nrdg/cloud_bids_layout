@@ -77,7 +77,6 @@ support from the `Washington Research Foundation <http://www.wrfseattle.org/>`_ 
    installation <installation>
    usage <usage.ipynb>
    faq <faq>
-   examples <https://github.com/nrdg/cloud_bids_layout/tree/master/examples>
    contributing <https://github.com/nrdg/cloud_bids_layout/blob/master/CONTRIBUTING.md>
    code <https://github.com/nrdg/cloud_bids_layout>
    bugs <https://github.com/nrdg/cloud_bids_layout/issues>
