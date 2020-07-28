@@ -45,6 +45,8 @@ extensions = ["sphinx.ext.autodoc", "sphinx.ext.viewcode"]
 sys.path.append(os.path.abspath("sphinxext"))
 
 extensions = [
+    "nbsphinx",
+    "sphinx.ext.mathjax",
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
     "sphinx.ext.intersphinx",
@@ -55,8 +57,10 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "alabaster",
-    "github",
 ]
+
+nbsphinx_allow_errors = False
+nbsphinx_execute = "never"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -77,7 +81,7 @@ sphinx_gallery_conf = {
     # path where to save gallery generated examples
     "gallery_dirs": "auto_examples",
     # To auto-generate example sections in the API
-    "doc_module": ("cloudknot",),
+    "doc_module": ("cloud_bids_layout",),
     # Auto-generated mini-galleries go here
     "backreferences_dir": "gen_api",
 }

@@ -4,20 +4,12 @@ Welcome to Cloud-BIDS-Layout's documentation!
 Cloud-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that
 can grab BIDS studies from Amazon S3.
 
-Usage
------
-
-.. code-block:: python
-
-   # Insert an amazing Cloud-BIDS-Layout example here
-   pass
-
 Motivation
 ----------
 
-The [Brain Imaging Data Structure (BIDS)](https://bids.neuroimaging.io/)
+The `Brain Imaging Data Structure (BIDS) <https://bids.neuroimaging.io/>`_
 is an intuitive, accessible, and community-driven data specification for
-neuroimaging data. [Pybids](https://bids-standard.github.io/pybids/)
+neuroimaging data. `Pybids <https://bids-standard.github.io/pybids/>`_
 is an exceptionally written Python library that makes it easy for
 researchers to query, summarize, and manipulate BIDS-compliant data.
 However, it's workhorse `BIDSLayout` class doesn't index remote datasets
@@ -29,35 +21,20 @@ supported but support for Google Cloud Storage and others is coming
 soon. Cloud-BIDS-Layout creates a lightweight semblance of the remote
 dataset, just enough to pass to pybids' `BIDSLayout` for indexing.
 The user can then use pybids' familiar `.get()` method to select a
-subset of the study that they wish to download to the host. See the
-[documentation](https://nrdg.github.io/cloud_bids_layout) for more
-details.
+subset of the study that they wish to download to the host. See
+Usage_ for more details.
 
-`cottoncandy <https://doi.org/10.5281/zenodo.1034342>`_ for interacting with
-numpy array data on `Amazon S3 <https://aws.amazon.com/s3/>`_. Or see `pywren
-<http://pywren.io/>`_, which enables users to run their existing python code
-on `AWS Lambda <https://aws.amazon.com/lambda/>`_, providing convenient
-distributed execution for jobs that fall within the AWS Lambda limits (maximum
-300 seconds of execution time, 1.5 GB of RAM, 512 MB of local storage, and no
-root access). For jobs that require more, we introduce cloudknot to execute
-existing python code on AWS Batch.
-
-Cloudknot takes as input a python function, Dockerizes it for use in an Amazon
-ECS instance, and creates all the necessary AWS Batch constituent resources to
-submit jobs. You can then use cloudknot to submit and view jobs for a range
-of inputs.
-
-Installation and getting started
---------------------------------
+Installation and usage
+----------------------
 
 To install Cloud-BIDS-Layout and see usage details
-visit :ref:`installation-label` and :ref:`usage-label`.
+visit :ref:`installation-label` and Usage_.
 
 Documentation and API
 ---------------------
 
 Most users will only need to interact with the `CloudBIDSLayout` class. See
-:ref:`usage-label` for more details.
+Usage_ for more details.
 
 Bugs and issues
 ---------------
@@ -98,10 +75,12 @@ support from the `Washington Research Foundation <http://www.wrfseattle.org/>`_ 
    :hidden:
 
    installation <installation>
-   usage <usage>
+   usage <usage.ipynb>
    faq <faq>
    examples <https://github.com/nrdg/cloud_bids_layout/tree/master/examples>
-   modules
    contributing <https://github.com/nrdg/cloud_bids_layout/blob/master/CONTRIBUTING.md>
    code <https://github.com/nrdg/cloud_bids_layout>
    bugs <https://github.com/nrdg/cloud_bids_layout/issues>
+   history <history>
+
+.. _Usage: usage.ipynb

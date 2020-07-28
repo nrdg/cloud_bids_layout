@@ -1,6 +1,9 @@
 # setuptools_scm generated version file
 cloud_bids_layout/version.py
 
+# example dataset
+examples/ds000030
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
