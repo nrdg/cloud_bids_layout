@@ -1,11 +1,30 @@
+![Build Status](https://github.com/nrdg/cloudknot/workflows/build/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+
 # Cloud-BIDS-Layout
 
 Cloud-BIDS-Layout is a lightweight wrapper for pybids' BIDS.Layout that can
 grab BIDS studies from Amazon S3.
 
-## Features
+## Motivation
 
-- TODO
+The [Brain Imaging Data Structure (BIDS)](https://bids.neuroimaging.io/)
+is an intuitive, accessible, and community-driven data specification for
+neuroimaging data. [Pybids](https://bids-standard.github.io/pybids/) is
+an exceptionally written Python library that makes it easy for
+researchers to query, summarize, and manipulate BIDS-compliant data.
+However, it's workhorse `BIDSLayout` class doesn't index remote datasets
+stored in the cloud. That's where Cloud-BIDS-Layout comes in.
+
+Cloud-BIDS-Layout allows its user to specify a remote location for
+a BIDS-Compliant dataset. Currently only Amazon S3 locations are
+supported but support for Google Cloud Storage and others is coming
+soon. Cloud-BIDS-Layout creates a lightweight semblance of the remote
+dataset, just enough to pass to pybids' `BIDSLayout` for indexing.
+The user can then use pybids' familiar `.get()` method to select a
+subset of the study that they wish to download to the host. See the
+[documentation](https://nrdg.github.io/cloud_bids_layout) for more details.
 
 This is the Cloud-BIDS-Layout development site. You can view the source
 code, file new issues, and contribute to Cloud-BIDS-Layouts's development.
