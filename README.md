@@ -1,4 +1,4 @@
-![Build Status](https://github.com/nrdg/cloudknot/workflows/build/badge.svg)
+[![Build Status](https://github.com/nrdg/cloudknot/workflows/build/badge.svg)](https://github.com/nrdg/cloud_bids_layout/actions?query=workflow%3Abuild)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
