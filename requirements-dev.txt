@@ -4,7 +4,6 @@ coverage==4.5.4
 docutils==0.15.2
 flake8==3.7.8
 numpydoc==1.1.0
-pandoc==2.10.1
 pip==20.1.1
 pytest-cov==2.8.1
 pytest-runner==5.1
