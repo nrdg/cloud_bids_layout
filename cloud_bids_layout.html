@@ -1,0 +1,904 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cloud_bids_layout package &#8212; Cloud-BIDS-Layout 0.1.dev261536445 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Cloud-BIDS-Layout</a></h1>
+
+
+
+<p class="blurb">Use pybids with datasets in the cloud</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=nrdg&repo=cloud_bids_layout&type=star&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">faq</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/tree/master/examples">examples</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/blob/master/CONTRIBUTING.md">contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout">code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/issues">bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="cloud-bids-layout-package">
+<h1>cloud_bids_layout package<a class="headerlink" href="#cloud-bids-layout-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cloud_bids_layout.cli">
+<span id="cloud-bids-layout-cli-module"></span><h2>cloud_bids_layout.cli module<a class="headerlink" href="#module-cloud_bids_layout.cli" title="Permalink to this headline">¶</a></h2>
+<p>Console script for cloud_bids_layout.</p>
+</div>
+<div class="section" id="module-cloud_bids_layout.cloud_bids_layout">
+<span id="cloud-bids-layout-cloud-bids-layout-module"></span><h2>cloud_bids_layout.cloud_bids_layout module<a class="headerlink" href="#module-cloud_bids_layout.cloud_bids_layout" title="Permalink to this headline">¶</a></h2>
+<p>Main module for Cloud-BIDS-Layout.</p>
+<dl class="class">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout">
+<em class="property">class </em><code class="descclassname">cloud_bids_layout.cloud_bids_layout.</code><code class="descname">CloudBIDSLayout</code><span class="sig-paren">(</span><em>remote_location</em>, <em>download_dir=None</em>, <em>anon=True</em>, <em>validate=True</em>, <em>absolute_paths=True</em>, <em>derivatives=False</em>, <em>config=None</em>, <em>sources=None</em>, <em>ignore=None</em>, <em>force_index=None</em>, <em>config_filename='layout_config.json'</em>, <em>regex_search=False</em>, <em>database_path=None</em>, <em>database_file=None</em>, <em>reset_database=False</em>, <em>index_metadata=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloud_bids_layout/cloud_bids_layout.html#CloudBIDSLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">bids.layout.layout.BIDSLayout</span></code></p>
+<p>A wrapper for bids.BIDSLayout that can access BIDS studies on Amazon S3</p>
+<p>This object uses empty files to mimic the file structure of a BIDS
+study on Amazon S3, downloading only the json files required by
+pybids to parse file entities.</p>
+<p>The remaining parameters from bids.BIDSLayout are listed below to make
+this docstring more useful</p>
+<dl class="docutils">
+<dt>remote_location <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Location (URI) of study on Amazon S3</dd>
+<dt>download_dir <span class="classifier-delimiter">:</span> <span class="classifier">str, optional, default=None</span></dt>
+<dd>The local directory to which the study will be downloaded.
+All json files will be downloaded and all remaining files
+will be mimicked with empty files of the same name. If None,
+CloudBIDSLayout will use tempfile.mkdtemp() to create a
+temporary directory. It is the user’s responsibility to
+delete this directory when done.</dd>
+<dt>anon <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=True</span></dt>
+<dd>Whether to use anonymous connection (public buckets only).
+If False, uses the key/secret given, or boto’s credential
+resolver (client_kwargs, environment, variables, config
+files, EC2 IAM server, in that order)</dd>
+<dt>validate <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd>If True, all files are checked for BIDS compliance
+when first indexed, and non-compliant files are ignored. This
+provides a convenient way to restrict file indexing to only those
+files defined in the “core” BIDS spec, as setting validate=True
+will lead files in supplementary folders like derivatives/, code/,
+etc. to be ignored.</dd>
+<dt>absolute_paths <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd>If True, queries always return absolute paths.
+If False, queries return relative paths (for files and
+directories).</dd>
+<dt>derivatives <span class="classifier-delimiter">:</span> <span class="classifier">bool or str or list, optional</span></dt>
+<dd>Specifies whether and/or which
+derivatives to to index. If True, all pipelines found in the
+derivatives/ subdirectory will be indexed. If a str or list, gives
+the paths to one or more derivatives directories to index. If False
+or None, the derivatives/ directory is ignored during indexing, and
+derivatives will have to be added manually via add_derivatives().
+Note: derivatives datasets MUST contain a dataset_description.json
+file in order to be indexed.</dd>
+<dt>config <span class="classifier-delimiter">:</span> <span class="classifier">str or list or None, optional</span></dt>
+<dd>Optional name(s) of configuration file(s) to use.
+By default (None), uses ‘bids’.</dd>
+<dt>sources <span class="classifier-delimiter">:</span> <span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout</span></code> or list or None, optional</span></dt>
+<dd>Optional BIDSLayout(s) from which the current BIDSLayout is derived.</dd>
+<dt>ignore <span class="classifier-delimiter">:</span> <span class="classifier">str or SRE_Pattern or list</span></dt>
+<dd>Path(s) to exclude from indexing. Each
+path is either a string or a SRE_Pattern object (i.e., compiled
+regular expression). If a string is passed, it must be either an
+absolute path, or be relative to the BIDS project root. If an
+SRE_Pattern is passed, the contained regular expression will be
+matched against the full (absolute) path of all files and
+directories. By default, indexing ignores all files in ‘code/’,
+‘stimuli/’, ‘sourcedata/’, ‘models/’, and any hidden files/dirs
+beginning with ‘.’ at root level.</dd>
+<dt>force_index <span class="classifier-delimiter">:</span> <span class="classifier">str or SRE_Pattern or list</span></dt>
+<dd>Path(s) to forcibly index in the
+BIDSLayout, even if they would otherwise fail validation. See the
+documentation for the ignore argument for input format details.
+Note that paths in force_index takes precedence over those in
+ignore (i.e., if a file matches both ignore and force_index, it
+<em>will</em> be indexed).
+Note: NEVER include ‘derivatives’ here; use the derivatives argument
+(or <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout.add_derivatives</span></code>) for that.</dd>
+<dt>config_filename <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Optional name of filename within directories
+that contains configuration information.</dd>
+<dt>regex_search <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>Whether to require exact matching (True) or regex
+search (False, default) when comparing the query string to each
+entity in .get() calls. This sets a default for the instance, but
+can be overridden in individual .get() requests.</dd>
+<dt>database_path <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Optional path to directory containing SQLite database file index
+for this BIDS dataset. If a value is passed and the folder
+already exists, indexing is skipped. By default (i.e., if None),
+an in-memory SQLite database is used, and the index will not
+persist unless .save() is explicitly called.</dd>
+<dt>reset_database <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, any existing directory specified in the
+database_path argument is deleted, and the BIDS dataset provided
+in the root argument is reindexed. If False, indexing will be
+skipped and the existing database file will be used. Ignored if
+database_path is not provided.</dd>
+<dt>index_metadata <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, all metadata files are indexed at
+initialization. If False, metadata will not be available (but
+indexing will be faster).</dd>
+</dl>
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.add_derivatives">
+<code class="descname">add_derivatives</code><span class="sig-paren">(</span><em>path</em>, <em>parent_database_path=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.add_derivatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add BIDS-Derivatives datasets to tracking.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>str</em><em> or </em><em>list</em>) – One or more paths to BIDS-Derivatives datasets.
+Each path can point to either a derivatives/ directory
+containing one more more pipeline directories, or to a single
+pipeline directory (e.g., derivatives/fmriprep).</li>
+<li><strong>parent_database_path</strong> (<em>str</em>) – If not None, use the pipeline name from the dataset_description.json
+file as the database folder name to nest within the parent database
+folder name to write out derivative index to.</li>
+<li><strong>kwargs</strong> (<em>dict</em>) – Optional keyword arguments to pass on to
+BIDSLayout() when initializing each of the derivative datasets.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Every derivatives directory intended for indexing MUST contain a
+valid dataset_description.json file. See the BIDS-Derivatives
+specification for details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.build_path">
+<code class="descname">build_path</code><span class="sig-paren">(</span><em>source</em>, <em>path_patterns=None</em>, <em>strict=False</em>, <em>scope='all'</em>, <em>validate=True</em>, <em>absolute_paths=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.build_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a target filename for a file or dictionary of entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source</strong> (str or <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSFile</span></code> or dict) – <p>The source data to use to construct the new file path.
+Must be one of:
+- A BIDSFile object
+- A string giving the path of a BIDSFile contained within the</p>
+<blockquote>
+<div>current Layout.</div></blockquote>
+<ul>
+<li>A dict of entities, with entity names in keys and values in
+values</li>
+</ul>
+</li>
+<li><strong>path_patterns</strong> (<em>list</em>) – <p>Optional path patterns to use to construct
+the new file path. If None, the Layout-defined patterns will
+be used. Entities should be represented by the name
+surrounded by curly braces. Optional portions of the patterns
+should be denoted by square brackets. Entities that require a
+specific value for the pattern to match can pass them inside
+angle brackets. Default values can be assigned by specifying a string
+after the pipe operator. E.g., (e.g., {type&lt;image&gt;|bold} would
+only match the pattern if the entity ‘type’ was passed and its
+value is “image”, otherwise the default value “bold” will be
+used).</p>
+<blockquote>
+<div>Example: ‘sub-{subject}/[var-{name}/]{id}.csv’
+Result: ‘sub-01/var-SES/1045.csv’</div></blockquote>
+</li>
+<li><strong>strict</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, all entities must be matched inside a
+pattern in order to be a valid match. If False, extra entities
+will be ignored so long as all mandatory entities are found.</li>
+<li><strong>scope</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – The scope of the search space. Indicates which
+BIDSLayouts’ path patterns to use. See BIDSLayout docstring
+for valid values. By default, uses all available layouts. If
+two or more values are provided, the order determines the
+precedence of path patterns (i.e., earlier layouts will have
+higher precedence).</li>
+<li><strong>validate</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, built path must pass BIDS validator. If
+False, no validation is attempted, and an invalid path may be
+returned (e.g., if an entity value contains a hyphen).</li>
+<li><strong>absolute_paths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Optionally override the instance-wide option
+to report either absolute or relative (to the top of the
+dataset) paths. If None, will fall back on the value specified
+at BIDSLayout initialization.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a deep copy of the current BIDSLayout.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.copy_files">
+<code class="descname">copy_files</code><span class="sig-paren">(</span><em>files=None</em>, <em>path_patterns=None</em>, <em>symbolic_links=True</em>, <em>root=None</em>, <em>conflicts='fail'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.copy_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy BIDSFile(s) to new locations.</p>
+<p>The new locations are defined by each BIDSFile’s entities and the
+specified <cite>path_patterns</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>files</strong> (<em>list</em>) – Optional list of BIDSFile objects to write out. If
+none provided, use files from running a get() query using
+remaining <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs.</li>
+<li><strong>path_patterns</strong> (<em>str</em><em> or </em><em>list</em>) – Write patterns to pass to each file’s write_file method.</li>
+<li><strong>symbolic_links</strong> (<em>bool</em>) – Whether to copy each file as a symbolic link or a deep copy.</li>
+<li><strong>root</strong> (<em>str</em>) – Optional root directory that all patterns are relative
+to. Defaults to current working directory.</li>
+<li><strong>conflicts</strong> (<em>str</em>) – <p>Defines the desired action when the output path already exists.
+Must be one of:</p>
+<blockquote>
+<div>’fail’: raises an exception
+‘skip’ does nothing
+‘overwrite’: overwrites the existing file
+‘append’: adds a suffix to each file copy, starting with 1</div></blockquote>
+</li>
+<li><strong>kwargs</strong> (<em>dict</em>) – Optional key word arguments to pass into a get() query.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.download_files">
+<code class="descname">download_files</code><span class="sig-paren">(</span><em>return_type='object'</em>, <em>target=None</em>, <em>scope='all'</em>, <em>regex_search=False</em>, <em>absolute_paths=None</em>, <em>invalid_filters='error'</em>, <em>**filters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cloud_bids_layout/cloud_bids_layout.html#CloudBIDSLayout.download_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.download_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for bids.BIDSLayout().get()</p>
+<p>Retrieves files and/or metadata from the current Layout
+and downloads the resulting files. The remaining
+parameters for bids.BIDSLayout().get are listed below to
+make this docstring more useful.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>return_type</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Type of result to return. Valid values:
+‘object’ (default): return a list of matching BIDSFile objects.
+‘file’ or ‘filename’: return a list of matching filenames.
+‘dir’: return a list of directories.
+‘id’: return a list of unique IDs. Must be used together</p>
+<blockquote>
+<div>with a valid target.</div></blockquote>
+</li>
+<li><strong>target</strong> (<em>str</em><em>, </em><em>optional</em>) – Optional name of the target entity to get results for
+(only used if return_type is ‘dir’ or ‘id’).</li>
+<li><strong>scope</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – Scope of the search space. If passed, only
+nodes/directories that match the specified scope will be
+searched. Possible values include:
+‘all’ (default): search all available directories.
+‘derivatives’: search all derivatives directories.
+‘raw’: search only BIDS-Raw directories.
+‘self’: search only the directly called BIDSLayout.
+&lt;PipelineName&gt;: the name of a BIDS-Derivatives pipeline.</li>
+<li><strong>regex_search</strong> (<em>bool</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Whether to require exact matching
+(False) or regex search (True) when comparing the query string
+to each entity.</li>
+<li><strong>absolute_paths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Optionally override the instance-wide option
+to report either absolute or relative (to the top of the
+dataset) paths. If None, will fall back on the value specified
+at BIDSLayout initialization.</li>
+<li><strong>(</strong><strong>str</strong><strong>)</strong> (<em>invalid_filters</em>) – <p>encountered that don’t exist in the database (e.g., in the case of
+a typo like subbject=’0.1’). Valid values:</p>
+<blockquote>
+<div>’error’ (default): Raise an explicit error.
+‘drop’: Silently drop invalid filters (equivalent to not having<blockquote>
+<div>passed them as arguments in the first place).</div></blockquote>
+<dl class="docutils">
+<dt>’allow’: Include the invalid filters in the query, resulting</dt>
+<dd>in no results being returned.</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><strong>filters</strong> (<em>dict</em>) – <p>Any optional key/values to filter the entities on.
+Keys are entity names, values are regexes to filter on. For
+example, passing filters={‘subject’: ‘sub-[12]’} would return
+only files that match the first two subjects. In addition to
+ordinary data types, the following enums are defined (in the
+Query class):</p>
+<blockquote>
+<div><ul>
+<li>Query.NONE: The named entity must not be defined.</li>
+<li><dl class="first docutils">
+<dt>Query.ANY: the named entity must be defined, but can have any</dt>
+<dd>value.</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSFile</span></code> or str – A list of BIDSFiles (default) or strings (see return_type).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.entities">
+<code class="descname">entities</code><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the entities.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.files">
+<code class="descname">files</code><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>return_type='object'</em>, <em>target=None</em>, <em>scope='all'</em>, <em>regex_search=False</em>, <em>absolute_paths=None</em>, <em>invalid_filters='error'</em>, <em>**filters</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve files and/or metadata from the current Layout.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>return_type</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Type of result to return. Valid values:
+‘object’ (default): return a list of matching BIDSFile objects.
+‘file’ or ‘filename’: return a list of matching filenames.
+‘dir’: return a list of directories.
+‘id’: return a list of unique IDs. Must be used together</p>
+<blockquote>
+<div>with a valid target.</div></blockquote>
+</li>
+<li><strong>target</strong> (<em>str</em><em>, </em><em>optional</em>) – Optional name of the target entity to get results for
+(only used if return_type is ‘dir’ or ‘id’).</li>
+<li><strong>scope</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – Scope of the search space. If passed, only
+nodes/directories that match the specified scope will be
+searched. Possible values include:
+‘all’ (default): search all available directories.
+‘derivatives’: search all derivatives directories.
+‘raw’: search only BIDS-Raw directories.
+‘self’: search only the directly called BIDSLayout.
+&lt;PipelineName&gt;: the name of a BIDS-Derivatives pipeline.</li>
+<li><strong>regex_search</strong> (<em>bool</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Whether to require exact matching
+(False) or regex search (True) when comparing the query string
+to each entity.</li>
+<li><strong>absolute_paths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Optionally override the instance-wide option
+to report either absolute or relative (to the top of the
+dataset) paths. If None, will fall back on the value specified
+at BIDSLayout initialization.</li>
+<li><strong>(</strong><strong>str</strong><strong>)</strong> (<em>invalid_filters</em>) – <p>encountered that don’t exist in the database (e.g., in the case of
+a typo like subbject=’0.1’). Valid values:</p>
+<blockquote>
+<div>’error’ (default): Raise an explicit error.
+‘drop’: Silently drop invalid filters (equivalent to not having<blockquote>
+<div>passed them as arguments in the first place).</div></blockquote>
+<dl class="docutils">
+<dt>’allow’: Include the invalid filters in the query, resulting</dt>
+<dd>in no results being returned.</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><strong>filters</strong> (<em>dict</em>) – <p>Any optional key/values to filter the entities on.
+Keys are entity names, values are regexes to filter on. For
+example, passing filters={‘subject’: ‘sub-[12]’} would return
+only files that match the first two subjects. In addition to
+ordinary data types, the following enums are defined (in the
+Query class):</p>
+<blockquote>
+<div><ul>
+<li>Query.NONE: The named entity must not be defined.</li>
+<li><dl class="first docutils">
+<dt>Query.ANY: the named entity must be defined, but can have any</dt>
+<dd>value.</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSFile</span></code> or str – A list of BIDSFiles (default) or strings (see return_type).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_bval">
+<code class="descname">get_bval</code><span class="sig-paren">(</span><em>path</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_bval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get bval file for passed path.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_bvec">
+<code class="descname">get_bvec</code><span class="sig-paren">(</span><em>path</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_bvec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get bvec file for passed path.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_collections">
+<code class="descname">get_collections</code><span class="sig-paren">(</span><em>level</em>, <em>types=None</em>, <em>variables=None</em>, <em>merge=False</em>, <em>sampling_rate=None</em>, <em>skip_empty=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_collections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return one or more variable Collections in the BIDS project.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>level</strong> (<em>{'run'</em><em>, </em><em>'session'</em><em>, </em><em>'subject'</em><em>, </em><em>'dataset'}</em>) – The level of analysis to return variables for.
+Must be one of ‘run’, ‘session’,’subject’, or ‘dataset’.</li>
+<li><strong>types</strong> (<em>str</em><em> or </em><em>list</em>) – Types of variables to retrieve. All valid values reflect the
+filename stipulated in the BIDS spec for each kind of variable.
+Valid values include: ‘events’, ‘physio’, ‘stim’, ‘scans’,
+‘participants’, ‘sessions’, and ‘regressors’. Default is None.</li>
+<li><strong>variables</strong> (<em>list</em>) – Optional list of variables names to return. If None, all available
+variables are returned.</li>
+<li><strong>merge</strong> (<em>bool</em>) – If True, variables are merged across all observations of the
+current level. E.g., if level=’subject’, variables from all
+subjects will be merged into a single collection. If False, each
+observation is handled separately, and the result is returned
+as a list.</li>
+<li><strong>sampling_rate</strong> (<em>int</em><em> or </em><em>str</em>) – If level=’run’, the sampling rate to pass onto the returned
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.variables.collections.BIDSRunVariableCollection</span></code>.</li>
+<li><strong>skip_empty</strong> (<em>bool</em>) – Whether or not to skip empty Variables (i.e., where there are no
+rows/records in a file after applying any filtering operations
+like dropping NaNs).</li>
+<li><strong>kwargs</strong> – Optional additional arguments to pass onto
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.variables.io.load_variables</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.variables.collections.BIDSVariableCollection</span></code> – or <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.variables.collections.BIDSVariableCollection</span></code>
+A list if merge=False;
+a single <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.variables.collections.BIDSVariableCollection</span></code>
+if merge=True.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_dataset_description">
+<code class="descname">get_dataset_description</code><span class="sig-paren">(</span><em>scope='self'</em>, <em>all_=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_dataset_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return contents of dataset_description.json.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scope</strong> (<em>str</em>) – The scope of the search space. Only descriptions of
+BIDSLayouts that match the specified scope will be returned.
+See <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout.get</span></code> docstring for valid values.
+Defaults to ‘self’ –i.e., returns the dataset_description.json
+file for only the directly-called BIDSLayout.</li>
+<li><strong>all</strong> (<em>bool</em>) – If True, returns a list containing descriptions for
+all matching layouts. If False (default), returns for only the
+first matching layout.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>dict or list of dict</em> – a dictionary or list of dictionaries (depending on <a href="#id3"><span class="problematic" id="id4">all_</span></a>).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_entities">
+<code class="descname">get_entities</code><span class="sig-paren">(</span><em>scope='all'</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get entities for all layouts in the specified scope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>scope</strong> (<em>str</em>) – The scope of the search space. Indicates which
+BIDSLayouts’ entities to extract.
+See <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout.get</span></code> docstring for valid values.</li>
+<li><strong>metadata</strong> (<em>bool</em><em> or </em><em>None</em>) – By default (None), all available entities
+are returned. If True, only entities found in metadata files
+(and not defined for filenames) are returned. If False, only
+entities defined for filenames (and not those found in JSON
+sidecars) are returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>dict</em> – Dictionary where keys are entity names and
+values are Entity instances.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_fieldmap">
+<code class="descname">get_fieldmap</code><span class="sig-paren">(</span><em>path</em>, <em>return_list=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_fieldmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fieldmap(s) for specified path.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_file">
+<code class="descname">get_file</code><span class="sig-paren">(</span><em>filename</em>, <em>scope='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the BIDSFile object with the specified path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – The path of the file to retrieve. Must be either an absolute path,
+or relative to the root of this BIDSLayout.</li>
+<li><strong>scope</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – Scope of the search space. If passed, only BIDSLayouts that match
+the specified scope will be searched. See <code class="xref py py-obj docutils literal notranslate"><span class="pre">BIDSLayout.get</span></code>
+docstring for valid values. Default is ‘all’.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSFile</span></code> or None – File found, or None if no match was found.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_files">
+<code class="descname">get_files</code><span class="sig-paren">(</span><em>scope='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get BIDSFiles for all layouts in the specified scope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scope</strong> (<em>str</em>) – The scope of the search space. Indicates which
+BIDSLayouts’ entities to extract.
+See <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout.get</span></code> docstring for valid values.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>A dict, where keys are file paths and values
+are <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSFile</span></code> instances.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_metadata">
+<code class="descname">get_metadata</code><span class="sig-paren">(</span><em>path</em>, <em>include_entities=False</em>, <em>scope='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return metadata found in JSON sidecars for the specified file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<em>str</em>) – Path to the file to get metadata for.</li>
+<li><strong>include_entities</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, all available entities extracted
+from the filename (rather than JSON sidecars) are included in
+the returned metadata dictionary.</li>
+<li><strong>scope</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – The scope of the search space. Each element must
+be one of ‘all’, ‘raw’, ‘self’, ‘derivatives’, or a
+BIDS-Derivatives pipeline name. Defaults to searching all
+available datasets.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>dict</em> – A dictionary of key/value pairs extracted from all of the
+target file’s associated JSON sidecars.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>A dictionary containing metadata extracted from all matching .json
+files is returned. In cases where the same key is found in multiple
+files, the values in files closer to the input filename will take
+precedence, per the inheritance rules in the BIDS specification.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_nearest">
+<code class="descname">get_nearest</code><span class="sig-paren">(</span><em>path</em>, <em>return_type='filename'</em>, <em>strict=True</em>, <em>all_=False</em>, <em>ignore_strict_entities='extension'</em>, <em>full_search=False</em>, <em>**filters</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_nearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walk up file tree from specified path and return nearest matching file(s).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(</strong><strong>str</strong><strong>)</strong> (<em>return_type</em>) – </li>
+<li><strong>(</strong><strong>str</strong><strong>)</strong> – (default) or ‘tuple’.</li>
+<li><strong>(</strong><strong>bool</strong><strong>)</strong> (<em>full_search</em>) – path and the target file(s) must match perfectly. When False,
+files will be ordered by the number of matching entities, and
+partial matches will be allowed.</li>
+<li><strong>(</strong><strong>bool</strong><strong>)</strong> – (default), only returns the first match.</li>
+<li><strong>(</strong><strong>str</strong><strong>, </strong><strong>list</strong><strong>)</strong> (<em>ignore_strict_entities</em>) – exclude from strict matching when strict is True. This allows
+one to search, e.g., for files of a different type while
+matching all other entities perfectly by passing
+ignore_strict_entities=[‘type’]. Ignores extension by default.</li>
+<li><strong>(</strong><strong>bool</strong><strong>)</strong> – they don’t share a common root with the provided path. If
+False, only files that share a common root will be scanned.</li>
+<li><strong>filters</strong> (<em>dict</em>) – Optional keywords to pass on to <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout.get</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_tr">
+<code class="descname">get_tr</code><span class="sig-paren">(</span><em>derivatives=False</em>, <em>**filters</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.get_tr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scanning repetition time (TR) for one or more runs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>derivatives</strong> (<em>bool</em>) – If True, also checks derivatives images.</li>
+<li><strong>filters</strong> (<em>dict</em>) – Optional keywords used to constrain the selected runs.
+Can be any arguments valid for a .get call (e.g., BIDS entities
+or JSON sidecar keys).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>float</em> – A single float.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Raises an exception if more than one unique TR is found.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.load">
+<em class="property">classmethod </em><code class="descname">load</code><span class="sig-paren">(</span><em>database_path</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load index from database path. Initalization parameters are set to
+those found in database_path JSON sidecar.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>database_path</strong> (<em>str</em>) – The path to the desired database folder. By default,
+uses .db_cache. If a relative path is passed, it is assumed to
+be relative to the BIDSLayout root directory.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.parse_file_entities">
+<code class="descname">parse_file_entities</code><span class="sig-paren">(</span><em>filename</em>, <em>scope='all'</em>, <em>entities=None</em>, <em>config=None</em>, <em>include_unmatched=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.parse_file_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the passed filename for entity/value pairs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – The filename to parse for entity values</li>
+<li><strong>scope</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – The scope of the search space. Indicates which BIDSLayouts’
+entities to extract. See <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.BIDSLayout.get</span></code>
+docstring for valid values. By default, extracts all entities.</li>
+<li><strong>entities</strong> (<em>list</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – An optional list of Entity instances to use in
+extraction. If passed, the scope and config arguments are
+ignored, and only the Entities in this list are used.</li>
+<li><strong>config</strong> (str or <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.models.Config</span></code> or list or None, optional) – One or more <code class="xref py py-obj docutils literal notranslate"><span class="pre">bids.layout.models.Config</span></code> objects, or paths
+to JSON config files on disk, containing the Entity definitions
+to use in extraction. If passed, scope is ignored.</li>
+<li><strong>include_unmatched</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, unmatched entities are included
+in the returned dict, with values set to None. If False
+(default), unmatched entities are ignored.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>dict</em> – Dictionary where keys are Entity names and values are the
+values extracted from the filename.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>database_path</em>, <em>replace_connection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current index as a SQLite3 DB at the specified location.</p>
+<p>Note: This is only necessary if a database_path was not specified
+at initialization, and the user now wants to save the index.
+If a database_path was specified originally, there is no need to
+re-save using this method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>database_path</strong> (<em>str</em>) – The path to the desired database folder. By default,
+uses .db_cache. If a relative path is passed, it is assumed to
+be relative to the BIDSLayout root directory.</li>
+<li><strong>replace_connection</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the newly created database will
+be used for all subsequent connections. This means that any
+changes to the index made after the .save() call will be
+reflected in the database file. If False, the previous database
+will continue to be used, and any subsequent changes will not
+be reflected in the new file unless save() is explicitly called
+again.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.to_df">
+<code class="descname">to_df</code><span class="sig-paren">(</span><em>metadata=False</em>, <em>**filters</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.to_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return information for BIDSFiles tracked in Layout as pd.DataFrame.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>metadata</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, includes columns for all metadata fields.
+If False, only filename-based entities are included as columns.</li>
+<li><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – Optional keyword arguments passed on to get(). This allows
+one to easily select only a subset of files for export.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> – A pandas DataFrame, where each row is a file, and each column is
+a tracked entity. NaNs are injected whenever a file has no
+value for a given attribute.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.write_to_file">
+<code class="descname">write_to_file</code><span class="sig-paren">(</span><em>entities</em>, <em>path_patterns=None</em>, <em>contents=None</em>, <em>link_to=None</em>, <em>copy_from=None</em>, <em>content_mode='text'</em>, <em>conflicts='fail'</em>, <em>strict=False</em>, <em>validate=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_bids_layout.cloud_bids_layout.CloudBIDSLayout.write_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to a file defined by the passed entities and patterns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>entities</strong> (<em>dict</em>) – A dictionary of entities, with Entity names in
+keys and values for the desired file in values.</li>
+<li><strong>path_patterns</strong> (<em>list</em>) – Optional path patterns to use when building
+the filename. If None, the Layout-defined patterns will be
+used.</li>
+<li><strong>contents</strong> (<em>object</em>) – Contents to write to the generate file path.
+Can be any object serializable as text or binary data (as
+defined in the content_mode argument).</li>
+<li><strong>link_to</strong> (<em>str</em>) – Optional path with which to create a symbolic link
+to. Used as an alternative to and takes priority over the
+contents argument.</li>
+<li><strong>conflicts</strong> (<em>str</em>) – <p>Defines the desired action when the output path already exists.
+Must be one of:</p>
+<blockquote>
+<div>’fail’: raises an exception
+‘skip’ does nothing
+‘overwrite’: overwrites the existing file
+‘append’: adds a suffix to each file copy, starting with 1</div></blockquote>
+</li>
+<li><strong>strict</strong> (<em>bool</em>) – If True, all entities must be matched inside a
+pattern in order to be a valid match. If False, extra entities
+will be ignored so long as all mandatory entities are found.</li>
+<li><strong>validate</strong> (<em>bool</em>) – If True, built path must pass BIDS validator. If
+False, no validation is attempted, and an invalid path may be
+returned (e.g., if an entity value contains a hyphen).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloud_bids_layout.version">
+<span id="cloud-bids-layout-version-module"></span><h2>cloud_bids_layout.version module<a class="headerlink" href="#module-cloud_bids_layout.version" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cloud_bids_layout">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloud_bids_layout" title="Permalink to this headline">¶</a></h2>
+<p>Top-level package for Cloud-BIDS-Layout.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Adam Richie-Halford.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/cloud_bids_layout.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

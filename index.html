@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cloud-BIDS-Layout’s documentation! &#8212; Cloud-BIDS-Layout 0.1.dev261536445 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/collapsible.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Cloud-BIDS-Layout</a></h1>
+
+
+
+<p class="blurb">Use pybids with datasets in the cloud</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=nrdg&repo=cloud_bids_layout&type=star&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">faq</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/blob/master/CONTRIBUTING.md">contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout">code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/issues">bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-cloud-bids-layout-s-documentation">
+<h1>Welcome to Cloud-BIDS-Layout’s documentation!<a class="headerlink" href="#welcome-to-cloud-bids-layout-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Cloud-BIDS-Layout is a lightweight wrapper for pybids’ BIDS.Layout that
+can grab BIDS studies from Amazon S3.</p>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://bids.neuroimaging.io/">Brain Imaging Data Structure (BIDS)</a>
+is an intuitive, accessible, and community-driven data specification for
+neuroimaging data. <a class="reference external" href="https://bids-standard.github.io/pybids/">Pybids</a>
+is an exceptionally written Python library that makes it easy for
+researchers to query, summarize, and manipulate BIDS-compliant data.
+However, it’s workhorse <cite>BIDSLayout</cite> class doesn’t index remote datasets
+stored in the cloud. That’s where Cloud-BIDS-Layout comes in.</p>
+<p>Cloud-BIDS-Layout allows its user to specify a remote location for
+a BIDS-Compliant dataset. Currently only Amazon S3 locations are
+supported but support for Google Cloud Storage and others is coming
+soon. Cloud-BIDS-Layout creates a lightweight semblance of the remote
+dataset, just enough to pass to pybids’ <cite>BIDSLayout</cite> for indexing.
+The user can then use pybids’ familiar <cite>.get()</cite> method to select a
+subset of the study that they wish to download to the host. See
+<a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> for more details.</p>
+</div>
+<div class="section" id="installation-and-usage">
+<h2>Installation and usage<a class="headerlink" href="#installation-and-usage" title="Permalink to this headline">¶</a></h2>
+<p>To install Cloud-BIDS-Layout and see usage details
+visit <a class="reference internal" href="installation.html#installation-label"><span class="std std-ref">Installation</span></a> and <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a>.</p>
+</div>
+<div class="section" id="documentation-and-api">
+<h2>Documentation and API<a class="headerlink" href="#documentation-and-api" title="Permalink to this headline">¶</a></h2>
+<p>Most users will only need to interact with the <cite>CloudBIDSLayout</cite> class. See
+<a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> for more details.</p>
+</div>
+<div class="section" id="bugs-and-issues">
+<h2>Bugs and issues<a class="headerlink" href="#bugs-and-issues" title="Permalink to this headline">¶</a></h2>
+<p>If you are having issues, please let us know by <a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/issues">opening up a new issue</a>.
+You will probably want to tag your issue with the “bug” or “question” label.</p>
+</div>
+<div class="section" id="contribute">
+<h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
+<p>We invite you to contribute to Cloud-BIDS-Layout. Take a look at the <a class="reference external" href="https://github.com/nrdg/cloud_bids_layout">source code</a>. Or tackle one of the <a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/issues">open issues</a>. Issues labeled “help wanted”
+or “good first issue” are particularly appropriate for beginners.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>The project is licensed under the <a class="reference external" href="https://github.com/nrdg/cloud_bids_layout/blob/master/LICENSE">MIT license</a>.</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>The development of Cloud-BIDS-Layout is supported through grant
+<a class="reference external" href="https://projectreporter.nih.gov/project_info_details.cfm?aid=9886761&amp;icde=46874320&amp;ddparam=&amp;ddvalue=&amp;ddsub=&amp;cr=2&amp;csb=default&amp;cs=ASC&amp;pball=">1RF1MH121868-01</a>
+from the <a class="reference external" href="https://www.nimh.nih.gov/index.shtml">National Institutes for Mental Health</a>/<a class="reference external" href="https://braininitiative.nih.gov/">The BRAIN
+Initiative</a>.</p>
+<p>We are also grateful for support from the <a class="reference external" href="https://www.moore.org/">Gordon and Betty Moore
+Foundation</a> and the <a class="reference external" href="https://sloan.org.">Alfred P. Sloan Foundation</a> to the <a class="reference external" href="http://escience.washington.edu/">University of
+Washington eScience Institute</a> Data Science Environment, as well as
+support from the <a class="reference external" href="http://www.wrfseattle.org/">Washington Research Foundation</a> to eScience and to the
+<a class="reference external" href="http://uwin.washington.edu/">University of Washington Institute for Neuroengineering</a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    
+    <div class="footer">
+      &copy;2020, Adam Richie-Halford.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".toggle > *").hide();
+            $(".toggle .header").show();
+            $(".toggle .header").click(function() {
+                $(this).parent().children().not(".header").toggle(400);
+                $(this).parent().children(".header").toggleClass("open");
+            })
+        });
+    </script>
+
+  </body>
+</html>

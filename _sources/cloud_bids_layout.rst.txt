@@ -1,0 +1,38 @@
+cloud\_bids\_layout package
+===========================
+
+Submodules
+----------
+
+cloud\_bids\_layout.cli module
+------------------------------
+
+.. automodule:: cloud_bids_layout.cli
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloud\_bids\_layout.cloud\_bids\_layout module
+----------------------------------------------
+
+.. automodule:: cloud_bids_layout.cloud_bids_layout
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cloud\_bids\_layout.version module
+----------------------------------
+
+.. automodule:: cloud_bids_layout.version
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cloud_bids_layout
+    :members:
+    :undoc-members:
+    :show-inheritance:
