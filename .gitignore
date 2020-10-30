@@ -3,6 +3,7 @@ cloud_bids_layout/version.py
 
 # example dataset
 examples/ds000030
+examples/hbn-curated
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
