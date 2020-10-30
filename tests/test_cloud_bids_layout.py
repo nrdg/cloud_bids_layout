@@ -37,7 +37,10 @@ def s3_setup():
     """pytest fixture to put test_data directory on mock_s3"""
     fs = s3fs.S3FileSystem()
     client = cbl._get_s3_client()
-    client.create_bucket(Bucket=TEST_BUCKET)
+    client.create_bucket(
+        Bucket=TEST_BUCKET,
+        CreateBucketConfiguration={"LocationConstraint": "us-west-2"},
+    )
     fs.put(
         op.join(DATA_PATH, TEST_DATASET),
         "/".join([TEST_BUCKET, TEST_DATASET]),
