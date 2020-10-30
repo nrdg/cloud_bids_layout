@@ -125,7 +125,7 @@ Before you submit a pull request, check that it meets these guidelines:
 A reminder for the maintainers on how to deploy.
 Cloud-BIDS-Layout pushes a development version to
 [Test-PyPI](https://test.pypi.org/) on every pull request merged into
-the master branch. To release a new version, use the
+the main branch. To release a new version, use the
 `publish_release.sh` script from the root directory, i.e.:
 ```bash
 .maintenance/publish_release.sh <version_number>

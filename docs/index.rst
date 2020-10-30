@@ -55,7 +55,7 @@ License
 -------
 
 The project is licensed under the `MIT license
-<https://github.com/nrdg/cloud_bids_layout/blob/master/LICENSE>`_.
+<https://github.com/nrdg/cloud_bids_layout/blob/main/LICENSE>`_.
 
 Acknowledgements
 ----------------
@@ -77,7 +77,7 @@ support from the `Washington Research Foundation <http://www.wrfseattle.org/>`_ 
    installation <installation>
    usage <usage.ipynb>
    faq <faq>
-   contributing <https://github.com/nrdg/cloud_bids_layout/blob/master/CONTRIBUTING.md>
+   contributing <https://github.com/nrdg/cloud_bids_layout/blob/main/CONTRIBUTING.md>
    code <https://github.com/nrdg/cloud_bids_layout>
    bugs <https://github.com/nrdg/cloud_bids_layout/issues>
    history <history>
